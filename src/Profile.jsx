@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getWeatherByCity } from './api';
 
-const Profile = ({ user, setUser }) => {
+const Profile = ({ user, updateUser }) => {
   const [username, setUsername] = useState(user ? user.username : '');
   const [email, setEmail] = useState(user ? user.email : '');
   const [age, setAge] = useState(user ? user.age || '' : '');
@@ -10,11 +10,16 @@ const Profile = ({ user, setUser }) => {
   const [weatherData, setWeatherData] = useState({});
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    if (user && user.favoriteCities) {
+      user.favoriteCities.forEach(city => handleCheckWeather(city));
+    }
+  }, [user]);
+
   const handleSave = (e) => {
     e.preventDefault();
     const updatedUser = { ...user, username, email, age, address };
-    setUser(updatedUser);
-    localStorage.setItem('user', JSON.stringify(updatedUser));
+    updateUser(updatedUser);
   };
 
   const handleRemoveFavorite = (city) => {
@@ -22,8 +27,7 @@ const Profile = ({ user, setUser }) => {
       ...user,
       favoriteCities: user.favoriteCities.filter((favCity) => favCity !== city),
     };
-    setUser(updatedUser);
-    localStorage.setItem('user', JSON.stringify(updatedUser));
+    updateUser(updatedUser);
   };
 
   const handleCheckWeather = async (city) => {
@@ -77,7 +81,7 @@ const Profile = ({ user, setUser }) => {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-          <button type="submit">Guardar</button>
+          <button type="submit">Guardar datos y favoritos</button>
         </div>
       </form>
       {user && (

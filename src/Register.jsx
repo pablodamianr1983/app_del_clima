@@ -9,9 +9,10 @@ const Register = ({ setUser }) => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const user = { username, email, password };
-    setUser(user);
-    localStorage.setItem('user', JSON.stringify(user));
+    const newUser = { username, email, password, favoriteCities: [] };
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    localStorage.setItem('users', JSON.stringify([...storedUsers, newUser]));
+    setUser(newUser);
     navigate('/profile');
   };
 
@@ -20,7 +21,7 @@ const Register = ({ setUser }) => {
       <h2>Registro</h2>
       <form onSubmit={handleRegister}>
         <div className="auth-item">
-          <label>Nombre de Usuario:</label>
+          <label>Nombre de usuario:</label>
           <input
             type="text"
             value={username}

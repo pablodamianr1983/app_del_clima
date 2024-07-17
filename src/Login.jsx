@@ -8,10 +8,14 @@ const Login = ({ setUser }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const user = { username: email.split('@')[0], email, password };
-    setUser(user);
-    localStorage.setItem('user', JSON.stringify(user));
-    navigate('/profile');
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const user = storedUsers.find(u => u.email === email && u.password === password);
+    if (user) {
+      setUser(user);
+      navigate('/profile');
+    } else {
+      alert('Credenciales incorrectas');
+    }
   };
 
   return (

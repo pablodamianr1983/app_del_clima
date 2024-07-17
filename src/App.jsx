@@ -10,7 +10,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -18,7 +18,15 @@ function App() {
 
   const handleLogout = () => {
     setUser(null);
-    localStorage.removeItem('user');
+    localStorage.removeItem('currentUser');
+  };
+
+  const updateUser = (updatedUser) => {
+    setUser(updatedUser);
+    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const updatedUsers = storedUsers.map(u => u.email === updatedUser.email ? updatedUser : u);
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
   };
 
   const addFavoriteCity = (city) => {
@@ -27,8 +35,7 @@ function App() {
         ...user,
         favoriteCities: user.favoriteCities ? [...user.favoriteCities, city] : [city],
       };
-      setUser(updatedUser);
-      localStorage.setItem('user', JSON.stringify(updatedUser));
+      updateUser(updatedUser);
     }
   };
 
@@ -49,9 +56,9 @@ function App() {
         )}
         <Routes>
           <Route path="/" element={<WeatherApp user={user} addFavoriteCity={addFavoriteCity} />} />
-          <Route path="/register" element={<Register setUser={setUser} />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+          <Route path="/register" element={<Register setUser={updateUser} />} />
+          <Route path="/login" element={<Login setUser={updateUser} />} />
+          <Route path="/profile" element={<Profile user={user} updateUser={updateUser} />} />
         </Routes>
       </div>
     </Router>
