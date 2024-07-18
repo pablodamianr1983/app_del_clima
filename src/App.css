@@ -12,10 +12,10 @@
 }
 
 .App-header {
-  background: rgba(26, 26, 26, 0.8); /* Añadir transparencia */
-  padding: 5px 20px; /* Ajustar el padding según sea necesario */
+  background: rgba(26, 26, 26, 0.8); 
+  padding: 5px 20px; 
   display: flex;
-  justify-content: center; /* Centrar el contenido horizontalmente */
+  justify-content: center; 
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
@@ -26,17 +26,17 @@
 
 .menu-bar {
   display: flex;
-  gap: 10px; /* Reducir la brecha entre los elementos del menú */
+  gap: 10px; 
 }
 
 .menu-bar a {
   color: #fff;
   text-decoration: none;
-  padding: 5px 10px; /* Ajustar el padding según sea necesario */
+  padding: 5px 10px; 
   border-radius: 5px;
-  background-color: rgba(51, 51, 51, 0.8); /* Añadir transparencia */
+  background-color: rgba(51, 51, 51, 0.8); 
   transition: background-color 0.3s ease;
-  font-size: 14px; /* Reducir el tamaño de fuente */
+  font-size: 14px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +56,7 @@
   color: #fff;
   flex-direction: column;
   align-items: center;
-  padding-top: 70px; /* Ajustar el padding superior para compensar el cambio en el header */
+  padding-top: 70px; 
   position: relative;
   z-index: 1;
 }
@@ -114,7 +114,7 @@ nav a {
   top: 10px;
   right: 10px;
   color: #fff;
-  font-size: 14px; /* Reducir el tamaño de fuente */
+  font-size: 14px; 
   display: flex;
   align-items: center;
 }
@@ -124,13 +124,13 @@ nav a {
 }
 
 .user-info button {
-  padding: 5px 10px; /* Ajustar el padding del botón */
+  padding: 5px 10px; 
   border: none;
   background-color: #0078d7;
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px; /* Reducir el tamaño de fuente */
+  font-size: 14px; 
 }
 
 .profile {
@@ -141,21 +141,21 @@ nav a {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  padding-top: 100px; /* Aumentar el padding superior para evitar que el texto quede oculto */
+  padding-top: 100px; 
 }
 
 .profile h2 {
-  margin-bottom: 20px; /* Añadir margen inferior para separar el título del resto del contenido */
+  margin-bottom: 20px; 
 }
 
 .profile-form {
   width: 100%;
-  max-width: 350px; /* Reducir el ancho máximo del cuadro */
+  max-width: 350px; 
 }
 
 .profile-card {
   background: #1a1a1a;
-  padding: 10px; /* Reducir el padding */
+  padding: 10px; 
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   margin-bottom: 20px;
@@ -163,34 +163,33 @@ nav a {
 }
 
 .profile-item {
-  margin-bottom: 10px; /* Reducir el margen inferior */
-}
+  margin-bottom: 10px; 
 
 .profile-item label {
   display: block;
   margin-bottom: 5px;
   color: #ccc;
-  font-size: 14px; /* Reducir el tamaño de fuente */
+  font-size: 14px; 
 }
 
 .profile-item input {
-  padding: 6px; /* Reducir el padding */
-  width: calc(100% - 12px); /* Ajustar el ancho */
+  padding: 6px; 
+  width: calc(100% - 12px); 
   border: 1px solid #333;
   border-radius: 5px;
   background-color: #333;
   color: #fff;
-  font-size: 14px; /* Reducir el tamaño de fuente */
+  font-size: 14px; 
 }
 
 .profile button {
-  padding: 8px 16px; /* Reducir el padding */
+  padding: 8px 16px; 
   border: none;
   background-color: #0078d7;
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px; /* Reducir el tamaño de fuente */
+  font-size: 14px; 
 }
 
 .favorite-cities-grid {
