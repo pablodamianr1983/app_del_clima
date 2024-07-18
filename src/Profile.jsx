@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getWeatherByCity } from './api';
 
 const Profile = ({ user, updateUser }) => {
@@ -42,7 +41,6 @@ const Profile = ({ user, updateUser }) => {
 
   return (
     <div className="profile">
-      <Link to="/" className="home-button">Inicio</Link>
       <h2>¡Bienvenido a tu perfil!</h2>
       <form onSubmit={handleSave} className="profile-form">
         <div className="profile-card">

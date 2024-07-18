@@ -1,3 +1,51 @@
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  opacity: 0.5;
+  background-size: cover;
+}
+
+.App-header {
+  background: rgba(26, 26, 26, 0.8); /* Añadir transparencia */
+  padding: 5px 20px; /* Ajustar el padding según sea necesario */
+  display: flex;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.menu-bar {
+  display: flex;
+  gap: 10px; /* Reducir la brecha entre los elementos del menú */
+}
+
+.menu-bar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px; /* Ajustar el padding según sea necesario */
+  border-radius: 5px;
+  background-color: rgba(51, 51, 51, 0.8); /* Añadir transparencia */
+  transition: background-color 0.3s ease;
+  font-size: 14px; /* Reducir el tamaño de fuente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-bar a:hover {
+  background-color: rgba(85, 85, 85, 0.8);
+}
+
 .App {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -8,6 +56,9 @@
   color: #fff;
   flex-direction: column;
   align-items: center;
+  padding-top: 70px; /* Ajustar el padding superior para compensar el cambio en el header */
+  position: relative;
+  z-index: 1;
 }
 
 .weather-app {
@@ -62,10 +113,24 @@ nav a {
   position: absolute;
   top: 10px;
   right: 10px;
+  color: #fff;
+  font-size: 14px; /* Reducir el tamaño de fuente */
+  display: flex;
+  align-items: center;
 }
 
 .user-info span {
   margin-right: 10px;
+}
+
+.user-info button {
+  padding: 5px 10px; /* Ajustar el padding del botón */
+  border: none;
+  background-color: #0078d7;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Reducir el tamaño de fuente */
 }
 
 .profile {
@@ -74,16 +139,23 @@ nav a {
   align-items: center;
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 100px; /* Aumentar el padding superior para evitar que el texto quede oculto */
+}
+
+.profile h2 {
+  margin-bottom: 20px; /* Añadir margen inferior para separar el título del resto del contenido */
 }
 
 .profile-form {
   width: 100%;
-  max-width: 600px;
+  max-width: 350px; /* Reducir el ancho máximo del cuadro */
 }
 
 .profile-card {
   background: #1a1a1a;
-  padding: 20px;
+  padding: 10px; /* Reducir el padding */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   margin-bottom: 20px;
@@ -91,31 +163,34 @@ nav a {
 }
 
 .profile-item {
-  margin-bottom: 15px;
+  margin-bottom: 10px; /* Reducir el margen inferior */
 }
 
 .profile-item label {
   display: block;
   margin-bottom: 5px;
   color: #ccc;
+  font-size: 14px; /* Reducir el tamaño de fuente */
 }
 
 .profile-item input {
-  padding: 10px;
-  width: calc(100% - 20px);
+  padding: 6px; /* Reducir el padding */
+  width: calc(100% - 12px); /* Ajustar el ancho */
   border: 1px solid #333;
   border-radius: 5px;
   background-color: #333;
   color: #fff;
+  font-size: 14px; /* Reducir el tamaño de fuente */
 }
 
 .profile button {
-  padding: 10px 20px;
+  padding: 8px 16px; /* Reducir el padding */
   border: none;
   background-color: #0078d7;
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px; /* Reducir el tamaño de fuente */
 }
 
 .favorite-cities-grid {

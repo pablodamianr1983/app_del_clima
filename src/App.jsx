@@ -42,18 +42,24 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav>
-          <Link to="/">Inicio</Link>
-          <Link to="/register">Registro</Link>
-          <Link to="/login">Iniciar Sesión</Link>
-          {user && <Link to="/profile">Perfil</Link>}
-        </nav>
-        {user && (
-          <div className="user-info">
-            <span>Bienvenido, {user.username}</span>
-            <button onClick={handleLogout}>Cerrar Sesión</button>
-          </div>
-        )}
+        <video autoPlay muted loop id="background-video">
+          <source src="/clear-sky.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <header className="App-header">
+          <nav className="menu-bar">
+            <Link to="/">Inicio</Link>
+            <Link to="/register">Registro</Link>
+            <Link to="/login">Iniciar Sesión</Link>
+            {user && <Link to="/profile">Perfil</Link>}
+          </nav>
+          {user && (
+            <div className="user-info">
+              <span>Bienvenido, {user.username}</span>
+              <button onClick={handleLogout}>Cerrar Sesión</button>
+            </div>
+          )}
+        </header>
         <Routes>
           <Route path="/" element={<WeatherApp user={user} addFavoriteCity={addFavoriteCity} />} />
           <Route path="/register" element={<Register setUser={updateUser} />} />
