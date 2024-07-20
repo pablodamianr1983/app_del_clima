@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getWeatherByCity } from './api';
+import './App.css';
 
 const Profile = ({ user, updateUser }) => {
   const [username, setUsername] = useState(user ? user.username : '');
@@ -91,6 +92,11 @@ const Profile = ({ user, updateUser }) => {
                 <span>{city}</span>
                 {weatherData[city] && (
                   <div className="weather-info-small">
+                    <img
+                      src={`https://openweathermap.org/img/wn/${weatherData[city].weather[0].icon}@2x.png`}
+                      alt={weatherData[city].weather[0].description}
+                      className="weather-icon"
+                    />
                     <p>Temp: {weatherData[city].main.temp} °C</p>
                     <p>{weatherData[city].weather[0].description}</p>
                     <p>Humedad: {weatherData[city].main.humidity}%</p>

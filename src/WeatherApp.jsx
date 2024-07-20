@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getWeatherByCity } from './api';
+import './App.css';
 
 const WeatherApp = ({ user, addFavoriteCity }) => {
   const [city, setCity] = useState('');
@@ -16,6 +17,8 @@ const WeatherApp = ({ user, addFavoriteCity }) => {
       setWeather(null);
     }
   };
+
+  const getIconUrl = (icon) => `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
   return (
     <div className="weather-app">
@@ -37,6 +40,11 @@ const WeatherApp = ({ user, addFavoriteCity }) => {
           <p>Clima: {weather.weather[0].description}</p>
           <p>Humedad: {weather.main.humidity}%</p>
           <p>Velocidad del Viento: {weather.wind.speed} m/s</p>
+          <img 
+            src={getIconUrl(weather.weather[0].icon)} 
+            alt={weather.weather[0].description}
+            className="weather-icon"
+          />
           {user && (
             <button onClick={() => addFavoriteCity(weather.name)}>Agregar a Favoritos</button>
           )}

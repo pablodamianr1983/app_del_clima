@@ -4,6 +4,7 @@ import WeatherApp from './WeatherApp';
 import Register from './Register';
 import Login from './Login';
 import Profile from './Profile';
+import NotFound from './NotFound';
 import './App.css';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
           <Route path="/register" element={<Register setUser={updateUser} />} />
           <Route path="/login" element={<Login setUser={updateUser} />} />
           <Route path="/profile" element={<Profile user={user} updateUser={updateUser} />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
